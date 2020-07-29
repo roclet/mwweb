@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url(https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css)
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-top-area {
+  background: rgba(34, 67, 74, 0.5);
+}
