@@ -1,18 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
-// @import url(https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css)
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import "assets/scss/variables";
+@import "assets/scss/core/header";
+@import "assets/scss/core/slider";
 html,
 body {
   height: 100%;
 }
 
 body {
+  margin: 0 !important;
+}
+
+body {
   margin: 0;
-  // font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: #252525;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .header-top-area {
-  background: rgba(34, 67, 74, 0.5);
+    background-color: rgba(34, 67, 74, 0.5);
+    // background-color: $gray-800;
+    // $gray-800;
+    font-size: 12px;
+    color: $white
+  }
+  
+  .btnbook{
+      float: right;
+      background-color: '#fc2900',
+  }
+  .btnbook:hover {
+      background-color: $btnbook-bg!important;
+  }
+
+.flex-layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+
+  .flex-header {
+    height: 20px;
+    color: #fff;
+    background-color: $black;
+    padding: 15px;
+  }
+
+  .flex-body {
+    flex: 1 0;
+    height: 100%;
+    padding: 15px;
+
+    h4 {
+      margin: 10px 0;
+    }
+  }
+
+  .flex-footer {
+    height: 50px !important;
+    color: #fff;
+    background-color: $black;
+    padding: 5px 15px;
+
+    .sure-logo {
+      width: 50px !important;
+      margin: 0.5rem auto 0.5rem auto;
+      font-size: 10px;
+
+      span {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .test {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px dashed $black;
+    width: 250px;
+    height: 50px;
+  }
 }

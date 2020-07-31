@@ -1,0 +1,57 @@
+.hero_wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 400px;
+    height: 100%;
+}
+
+.hero {
+    position: relative;
+    opacity: 0.99;
+    background-position: 50% 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hero.hero_city.gbi--1045683832-wSeRcTq4HaruPaBRPfn4XM:before,
+.hero.hero_city.gbi--1045683832-wSeRcTq4HaruPaBRPfn4XM:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  
+  transition: opacity 0.5s ease 500ms;
+  background-position: 50% 0px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position-x: 50%;
+background-position-y: 0px;
+
+}
+.hero.hero_city.gbi--1045683832-wSeRcTq4HaruPaBRPfn4XM:before {
+  z-index: -100;
+  background-image: url('../../../../assets/images/slider-back-01.png');
+  height: 100%;
+  opacity: 1; 
+}
+.hero.hero_city.gbi--1045683832-wSeRcTq4HaruPaBRPfn4XM:after {
+  z-index: -101;
+  background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAGABQDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAACAf/xAAiEAACAgEEAgMBAAAAAAAAAAABAgMEBQYREiEHEwAiMXH/xAAWAQEBAQAAAAAAAAAAAAAAAAAFAwT/xAAdEQACAwACAwAAAAAAAAAAAAACAwABESGREhMx/9oADAMBAAIRAxEAPwAK6Flv6vfFYOlKuInluLGlytI6Su7uvH2ON/qp2IAHXZ/uZjPDTl1h7MGI7wjobGz6r8p4vWFGpeyUNOKlbs1ohKh4iX2SoGC7s3qDH8+3fw51E2lkBXm73E0kKbYJjvGdSQ2dcZfxVdmwWEyNiKkiwybg8S7GGNeRAPRIUdfG6Ci+wqiyuJ//2Q==);
+  opacity: 0;
+}
+

@@ -1,0 +1,7 @@
+<div (scroll)="onScrollEvent($event)">
+    <ngx-toasta></ngx-toasta>
+    <app-header-two></app-header-two>
+    <div class="main">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+</div>

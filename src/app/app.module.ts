@@ -1,34 +1,61 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app-routing';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule,
+import {
+  MatToolbarModule,
   MatIconModule,
   MatCardModule,
   MatButtonModule,
-  MatProgressSpinnerModule } from '@angular/material';
-import { MainComponent } from './main/main.component';
+  MatProgressSpinnerModule,
+} from '@angular/material';
+import { MainComponent } from './Main/Main.component';
+import { HeaderComponent } from './Layout/Header/HeaderOne/HeaderOne.component';
+import { HeaderTwoComponent } from './Layout/Header/HeaderTwo/Header-Two.component';
+import { MenuComponent } from './Layout/Menu/Menu/Menu.component';
+import { SidebarMenuComponent } from './Layout/Menu/SidebarMenu/SidebarMenu.component';
+import { TopHeaderComponent } from './Layout/TopHeader/TopHeader.component';
+import { GlobalModule } from './Global/Global.module';
+import { ToastaModule } from 'ngx-toasta';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './Pages/Home/home/Home.component';
+import { AboutComponent } from './Pages/About/About.component';
+import { MenuItems } from './Core/menu-items/menu-items';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent,
+    HeaderTwoComponent,
+    MenuComponent,
+    SidebarMenuComponent,
+    TopHeaderComponent,
+    HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgbModule.forRoot(),
+    RouterModule.forRoot(AppRoutes, {onSameUrlNavigation: 'reload'}),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ToastaModule.forRoot(),
+    GlobalModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    MenuItems,
+  ],
+  exports : [
+    RouterModule
+ ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

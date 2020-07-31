@@ -1,0 +1,19 @@
+<mat-toolbar class="header-top-area">
+    <div class="container">
+        <button mat-button >
+            <mat-icon style="color: #fc2900;"> add_location</mat-icon>
+            South Africa Cape Town
+        </button>
+        <button mat-button >
+            <mat-icon>perm_phone_msg</mat-icon>
+            27 21 007 4441
+        </button>
+        <button mat-button >
+            <mat-icon>drafts</mat-icon>
+            booking@feelathomeincapetown.co.za
+        </button>
+        <app-buttons [btnSetting]="textBtnConfig" class="btnbook" componentId= "btnboo"
+      color="warn" (clicked)="onClickEventReceived($event)"></app-buttons>
+        <!-- <button mat-flat-button class="btnbook" color="warn">Book Online</button> -->
+    </div>
+</mat-toolbar> <!-- header top end -->

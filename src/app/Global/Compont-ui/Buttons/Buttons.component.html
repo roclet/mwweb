@@ -1,0 +1,16 @@
+<button mat-flat-button class={{class}} color={{color}} [ngStyle]="btnSetting.styles" (click)="handleClick()">
+    {{btnSetting.text}}</button>
+<!-- <ng-container *ngTemplateOutlet="btnSetting['text'] ? text : img">
+</ng-container>
+
+<ng-template #text>
+    <button type="button" class="{{btnSetting.class}}" [ngStyle]="btnSetting.styles" [id]="componentId"
+        (click)="handleClick()">
+        {{ btnSetting.text}}
+    </button>
+</ng-template> -->
+
+<!-- Image Button -->
+<!-- <ng-template #img>
+    <img alt="image button" [src]="btnSetting.src" [ngStyle]="btnSetting.styles" (click)="handleClick()">
+</ng-template> -->

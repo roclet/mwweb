@@ -1,0 +1,94 @@
+<!--  Top menu -->
+<nav class="app-nav">
+	<ul class="app-nav-list">
+		<li class="app-nav-item" *ngFor="let item of menuItems.getMainMenu()" [ngClass]="{'mega': item.mega}">
+			<ng-container  *ngIf="item.type == 'sub'">
+				<a class="nav-link" routerLinkActive="active-link">
+				  {{item.name }}
+				</a>
+			</ng-container>
+			<a class="nav-link" *ngIf="item.type == 'link' && item.type !== 'register' && item.type !== 'logout-panel'"
+			[routerLink]="['/'+item.state]" routerLinkActive="active-link">
+				  {{item.name }}
+			</a>
+			<a class="nav-link" *ngIf="item.type === 'logout-panel'"  (click)="logout(item.state)"  [routerLink]="['/'+item.state]" routerLinkActive="active-link">
+				{{item.name}}
+			</a> 
+			<a class="nav-link" *ngIf="item.type === 'register'" [routerLink]="['/'+item.state]" routerLinkActive="active-link">
+				{{item.name}}
+		    </a>
+				<ul class="sub-menu" *ngIf="item.children && item.children.length >0 ">
+					<li *ngFor="let child of item.children">
+						<a class="nav-link" [ngClass]= "{'menu-item-has-children':child.type == 'subChild'}" [routerLink]="['/'+child.state]" routerLinkActive="active-link">
+							  {{child.name}} 
+						</a>
+					   <ul class="sub-menu" *ngIf="child.children && child.children.length >0">
+							<li *ngFor="let subChild of child.children">
+								<a *ngIf="subChild.type == 'queryParams'" class="nav-link" (click)="redirectTo(subChild)">
+									  {{subChild.name}} 
+								</a>
+								<a *ngIf="subChild.type == 'link'" class="nav-link" [routerLink]="['/'+subChild.state]">
+									  {{subChild.name}}
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</nav>
+
+
+
+
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon> 
+      </button>
+      <h1>
+        <img src="../../../../assets/images/logo.png">
+      </h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+        <a mat-button [routerLink]="'/create-account'"> Create Account </a>
+        <a mat-button [routerLink]="'/contacts'"> Contacts </a>
+        <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
+        <a mat-button [routerLink]="'/activities'"> Activities </a>
+        <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+  
+      </div>
+    </mat-toolbar-row>
+  
+    <mat-toolbar-row>
+        <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+      </mat-toolbar-row>
+  </mat-toolbar> -->
+  
+  
+  
+
+<!-- <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+          <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapse_target">
+        <a class="navbar-brand">
+            <img src="../../../../assets/images/logo.png">
+        </a>
+        <span class="navbar-text">Tour</span>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link">Link 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Link 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Link 3</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+ -->
