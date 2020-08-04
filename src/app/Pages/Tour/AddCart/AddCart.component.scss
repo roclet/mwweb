@@ -1,0 +1,138 @@
+.previous-orders-items {
+    margin-bottom: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.product-box {
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 3px;
+    margin-bottom: 4rem;
+}
+.previous-orders-items div {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+}
+
+div.product-box p:last-child {
+    margin-bottom: 20px;
+    margin: 0;
+}
+
+a {
+    color: #3898ff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 1px dashed transparent;
+}
+
+.previous-orders-link {
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.atbtn {
+    /* display: inline-block; */
+    line-height: 3.000em;
+    padding: 0 2em;
+    border: none;
+    vertical-align: top;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background: rgba(56, 152, 255, 0.8);
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    -ms-border-radius: 5rem;
+    -o-border-radius: 5rem;
+    border-radius: 5rem;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+div.product-box:last-child {
+    margin-bottom: 0;
+}
+
+.padding-all {
+    padding: 4rem 5rem;
+}
+
+div.product-box {
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.09);
+    border-radius: 3px;
+    margin-bottom: 4rem;
+}
+
+table {
+    text-align: left;
+    border: 1px solid #ccc;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.cart-collaterals .cart_totals table td, .woocommerce .cart-collaterals .cart_totals table th {
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 1px solid #e4e4e4;
+}
+th {
+    text-align: left;
+}
+
+.deleteS{
+    cursor: pointer;
+}

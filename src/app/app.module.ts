@@ -11,6 +11,7 @@ import {
   MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
+  MatTabsModule,
 } from '@angular/material';
 import { MainComponent } from './Main/Main.component';
 import { HeaderComponent } from './Layout/Header/HeaderOne/HeaderOne.component';
@@ -24,6 +25,10 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './Pages/Home/home/Home.component';
 import { AboutComponent } from './Pages/About/About.component';
 import { MenuItems } from './Core/menu-items/menu-items';
+import { FooterComponent } from './Layout/Footer/Footer.component';
+import { TourModule } from './Pages/Tour/Tour.module';
+import { TourService } from './Services/Tour.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,7 @@ import { MenuItems } from './Core/menu-items/menu-items';
     TopHeaderComponent,
     HomeComponent,
     AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,15 +52,21 @@ import { MenuItems } from './Core/menu-items/menu-items';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatTabsModule,
     MatProgressSpinnerModule,
     ToastaModule.forRoot(),
-    GlobalModule
+    GlobalModule,
+    HttpClientModule,
+    TourModule
   ],
   providers: [
     MenuItems,
+    TourService
   ],
   exports : [
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    MatTabsModule,
  ],
   bootstrap: [AppComponent],
 })

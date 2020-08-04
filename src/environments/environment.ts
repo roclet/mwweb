@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_URL: 'https://cloudcalls.easipath.com/',
+  endpoint: 'backend-bidoffice/api/',
+  documentpoint: 'backend-dms/api/',
+  emailpoint: 'backend-mailsender/api/',
+  cassandra: {
+        dbName: 'easitour',
+        dbName2: 'bidoffice',
+  }
 };
 
 /*
