@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
@@ -10,9 +10,10 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class TourformComponent implements OnInit {
 
   tourBookForm: FormGroup;
-  currentSingleProduct = [];
+  // currentSingleProduct = [];
   summTotal = 0;
-
+  @Input() tourPrice = [];
+  @Input() currentSingleProduct = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,

@@ -1,26 +1,37 @@
-
-<section class="section-paddings single-package-area">
+<section class="section-paddings single-package-area" *ngFor="let item of currentSingleProduct; let i = index">
 	<div class="container">
 		<div class="row">
 			<!-- single package tab with details -->
 			<div class="col-md-8 col-sm-12">
 				<div class="single-package-details">
 					<div class="single-package-title">
-						<h2>Thailand – All Stunning Places</h2>
+						<h2>{{item.country}} – {{item.name}}</h2>
 					</div>
 					<ul class="package-content">
-						<li>4 Days, 5 Nights</li>
-						<li>
+						<li>{{item.type}}</li>
+						<!-- <li>{{item.duration}}</li> -->
+						<li *ngFor="let item1 of TLanguage">
 							<span>
-							   <i class="fa fa-star"></i>
-							   <i class="fa fa-star"></i>
-							   <i class="fa fa-star"></i>
-							   <i class="fa fa-star"></i>
-							   <i class="fa fa-star"></i>
-							 </span> (3 Reviews)
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</span>{{item1.language}}
 						</li>
-						<li>Code: LMPROU</li>
-						<li>$500</li>
+						<!-- <li>{{item.max_people}} minimum people</li> -->
+						<li>${{item.saleprice}}</li>
+					</ul>
+					<ul class="package-content" *ngFor="let item2 of TourCat">
+						<li>
+							<a class="ao-tour-keep-exploring__element--link">{{item2.category}}</a>
+							<ul *ngFor="let item3 of TourSubcat">
+								<li >
+									<a class="ao-tour-keep-exploring__element--link">{{item3.subcategory}}</a>
+								</li>
+							</ul>
+						</li>
+						<li></li>
 					</ul>
 					<div class="package-features-image">
 						<img src="../../../../assets/images/13.jpg" alt="" class="img-responsove border-raduis-3">
@@ -28,15 +39,16 @@
 				</div><!-- tab menu strat -->
 
 				<!-- tab content start -->
-				<br/>
+				<br />
 				<div class="row">
 					<!-- tabs content -->
-                    <mat-tab-group>
+					<mat-tab-group>
 						<mat-tab label="Description">
-						   <app-descriptiontour></app-descriptiontour> 
-                           <app-relativetour></app-relativetour>
+							<app-descriptiontour [currentSingleProduct]="currentSingleProduct"
+								[Tavaibility]="Tavaibility"></app-descriptiontour>
+							<app-relativetour></app-relativetour>
 						</mat-tab>
-						<mat-tab label="Tour Itinary"> 
+						<mat-tab label="Tour Itinary">
 							<div class="row">
 								<div class="col-md-12 col-sm-12">
 									<div class="tour-description">
@@ -47,7 +59,13 @@
 												<div class="timeline-content left">
 													<span class="timeline-icon">1</span>
 													<h4>Day 1: Meeting The All Members</h4>
-													<p>Tourist attractions people foreign sleep overnight housing. Gerimrany group discount tour operator. Airplane couchsurfing Moi scow ma ps uncharted luxury train guest tour operator German y busre laxation. Paris overnight Japan Tripit territory international carren tal Pacific outdoor Turkey. Country international to urist attractions mil es train Moscow guide. Japan horse riding money Bacel ona Buda pest yach.</p>
+													<p>Tourist attractions people foreign sleep overnight housing.
+														Gerimrany group discount tour operator. Airplane couchsurfing
+														Moi scow ma ps uncharted luxury train guest tour operator German
+														y busre laxation. Paris overnight Japan Tripit territory
+														international carren tal Pacific outdoor Turkey. Country
+														international to urist attractions mil es train Moscow guide.
+														Japan horse riding money Bacel ona Buda pest yach.</p>
 												</div>
 											</div><!-- single timeline -->
 
@@ -56,7 +74,10 @@
 												<div class="timeline-content left">
 													<span class="timeline-icon">2</span>
 													<h4>Day 2: Unforgettable Journey</h4>
-													<p>Tourist attractions people foreign sleep overnight housing. Gerimrany group discount tour operator. Airplane couchsurfing Moi scow ma ps uncharted luxury train guest tour operator German y busre laxation. Paris overnight.</p>
+													<p>Tourist attractions people foreign sleep overnight housing.
+														Gerimrany group discount tour operator. Airplane couchsurfing
+														Moi scow ma ps uncharted luxury train guest tour operator German
+														y busre laxation. Paris overnight.</p>
 												</div>
 											</div><!-- single timeline -->
 
@@ -65,7 +86,10 @@
 												<div class="timeline-content left">
 													<span class="timeline-icon">3</span>
 													<h4>Day 3: Night Party</h4>
-													<p>Tourist attractions people foreign sleep overnight housing. Gerimrany group discount tour operator. Airplane couchsurfing Moi scow ma ps uncharted luxury train guest tour operator German y busre laxation. Paris overnight.</p>
+													<p>Tourist attractions people foreign sleep overnight housing.
+														Gerimrany group discount tour operator. Airplane couchsurfing
+														Moi scow ma ps uncharted luxury train guest tour operator German
+														y busre laxation. Paris overnight.</p>
 												</div>
 											</div><!-- single timeline -->
 
@@ -74,21 +98,26 @@
 												<div class="timeline-content left">
 													<span class="timeline-icon">4</span>
 													<h4>Day 4: Time To Say Good Bay</h4>
-													<p>Tourist attractions people foreign sleep overnight housing. Gerimrany group discount tour operator. Airplane couchsurfing Moi scow ma ps uncharted luxury train guest tour operator German y busre laxation. Paris overnight.</p>
+													<p>Tourist attractions people foreign sleep overnight housing.
+														Gerimrany group discount tour operator. Airplane couchsurfing
+														Moi scow ma ps uncharted luxury train guest tour operator German
+														y busre laxation. Paris overnight.</p>
 												</div>
 											</div><!-- single timeline -->
 										</div>
 									</div>
 								</div>
 							</div>
-  
+
 						</mat-tab>
-						<mat-tab label="Tour Map"> 
+						<mat-tab label="Tour Map">
 							<div class="mapp" id="overlay">
-								<iframe id="maping" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.701132954845!2d-96.89708368545975!3d32.879626086054884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9d666937c1f7%3A0xae26e896218f405!2sUSA+Bowl!5e0!3m2!1sbn!2sbd!4v1493296407400" allowfullscreen></iframe>
+								<iframe id="maping"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.701132954845!2d-96.89708368545975!3d32.879626086054884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9d666937c1f7%3A0xae26e896218f405!2sUSA+Bowl!5e0!3m2!1sbn!2sbd!4v1493296407400"
+									allowfullscreen></iframe>
 							</div>
 						</mat-tab>
-                        <mat-tab label="Video"> 
+						<mat-tab label="Video">
 							<div class="row">
 								<div class="col-md-12 col-sm-12">
 									<div class="tour-description">
@@ -96,7 +125,8 @@
 										<!-- Video -->
 										<div class="tab-video-area video-bg">
 											<div class="video-play-btn">
-												<a href="https://www.youtube.com/watch?v=UQneDljrWm0" class="video_iframe"><span><i class="fa fa-play"></i></span></a>
+												<a href="https://www.youtube.com/watch?v=UQneDljrWm0"
+													class="video_iframe"><span><i class="fa fa-play"></i></span></a>
 											</div>
 										</div><!-- Video -->
 									</div>
@@ -108,14 +138,15 @@
 				</div><!-- tab content end -->
 			</div><!-- single package tab with details -->
 
-			<!-- booking form start here -->
+			<!-- booking form start here *ngIf="tourPrice"-->
 			<div class="col-md-4 col-sm-12">
-                 <app-tourform></app-tourform>
+				<app-tourform [currentSingleProduct]="currentSingleProduct" [tourPrice]="tourPrice"></app-tourform>
 				<div class="adding-form">
 					<div class="addfor-bg">
 						<div class="add-content">
 							<h3>Any Question?</h3>
-							<p>Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sedpr do eiusmod tempor incididunt ut.</p>
+							<p>Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sedpr do eiusmod tempor
+								incididunt ut.</p>
 							<ul class="contact-for-add">
 								<li><img src="images/icon/phone.png" alt="">+123-456-7890</li>
 								<li><img src="images/icon/gmail.png" alt="">info@yourcompany.com</li>

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutes } from './app-routing';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatToolbarModule,
@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     RouterModule.forRoot(AppRoutes, {onSameUrlNavigation: 'reload'}),
     BrowserAnimationsModule,
     MatToolbarModule,

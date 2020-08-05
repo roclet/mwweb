@@ -2,21 +2,35 @@
     <div class="booking-form">
 
         <form [formGroup]="tourBookForm">
-            <div class="form-group">
+            <div class="form-group" *ngFor="let item of currentSingleProduct">
+                <div class="ao-tour-above-fold__length-tag">
+                    Book with flexibility 
+                </div>
+                {{item.moredetails.minimundaystobook}}
+                <!-- <span>{{}}</span> -->
+            </div>
+            <!-- <div class="form-group">
                 <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
                     <i class="fa fa-tags" aria-hidden="true"></i> $500
                 </button>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
-                    Children : 12
-                </button>
-                <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
-                    Adult : 22
-                </button>
-                <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
-                    Infant : 5
-                </button>
+            </div> -->
+            <div *ngFor="let item of tourPrice; let i = index">
+                <div class="form-group" *ngIf="item.pricetype === 'price by person'">
+                    <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
+                        Price for adult : {{item.adultprice}}
+                    </button>
+                    <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
+                        Price for child : {{item.childprice}}
+                    </button>
+                    <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
+                        Price for Infant : {{item.infantprice}}
+                    </button>
+                </div>
+                <div class="form-group" *ngIf="item.pricetype === 'fix price'">
+                    <button type="submit" class="booking-confirm hvr-shutter-out-horizontal">
+                        Price from : {{item.fixprice}}
+                    </button>
+                </div>
             </div>
             <div class="booking-title">
                 <h2>Book This Tour</h2>

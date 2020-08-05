@@ -22,7 +22,7 @@ export const AppRoutes: Routes = [
         component : HomeComponent
       },
       {
-         path: 'st_tour',
+         path: 'home/st_tour/:type/:id',
          component : SingletourComponent
        },
        {

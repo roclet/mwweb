@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private serviceT: TourService) { }
 
   ngOnInit() {
+    this.getAllTour();
   }
 
   getAllTour() {
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
     ];
     this.serviceT.getDataDetailsApi(this.datain).subscribe(data => {
       this.tourmodel = data.RESULT;
-      // console.log("this.tourmodel", this.tourmodel);
+      console.log("this.tourmodel", this.tourmodel);
     });
   }
 

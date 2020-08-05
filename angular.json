@@ -28,11 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss",
-              {
-                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
-              }
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -126,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "TourV01"
+  "defaultProject": "TourV01",
+  "cli": {
+    "analytics": "04a17a1a-1fc8-4d65-99b5-24de97e3e9a5"
+  }
 }

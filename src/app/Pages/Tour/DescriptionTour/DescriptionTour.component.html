@@ -1,12 +1,67 @@
-<div class="row">
+<div class="row" *ngFor="let item5 of currentSingleProduct">
     <!-- left content -->
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-7 col-sm-7">
         <div class="tour-description">
             <h4>Tour Description</h4>
-            <p>Tourist attractions people foreign sleep overnight housing. Gerimrany group discount tour operator. Airplane couchsurfing Moi scow ma ps uncharted luxury train guest tour operator German y busre laxation. Paris overnight Japan Tripit territory international carren tal Pacific outdoor Turkey. Country international to urist attractions mil es train Moscow guide. Japan horse riding money Bacel ona Buda pest yach t passport animals package China hitchh iking discover deal. Russia St. Petersburg Cuba creditcard bookin g discover Amst erdam flying. Freedom ani mals car rental booki ng. GEO Instagram group discount Brasil Germany gateway activ e lifestyle. Transit sailing kayak diary Europe chartering.</p>
+            <p><span [innerHTML]="encodep.decode(item5.description)"></span></p>
+        </div>
+        <div class="tour-description">
+            <h4>Tour Slots</h4>
+            <table mat-table [dataSource]="Tavaibility" class="mat-elevation-z8">
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+                <!-- Position Column -->
+                <ng-container matColumnDef="DateIn">
+                    <th mat-header-cell *matHeaderCellDef> Date CheckIn |</th>
+                    <td mat-cell *matCellDef="let element"> {{element.checkindate|date}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="DateOut">
+                    <th mat-header-cell *matHeaderCellDef> Date CheckOut |</th>
+                    <td mat-cell *matCellDef="let element"> {{element.checkoutdate|date}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="TIn">
+                    <th mat-header-cell *matHeaderCellDef> TimeIn |</th>
+                    <td mat-cell *matCellDef="let element"> {{element.checkintime}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Tout">
+                    <th mat-header-cell *matHeaderCellDef> TimeOut |</th>
+                    <td mat-cell *matCellDef="let element"> {{element.checkouttime}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <br/>
+        <div class="tour-description">
+            <h4>What's Highlight</h4>
+            <p><span [innerHTML]="encodep.decode(item5.t_highlight)"></span></p>
         </div>
         <div class="chosse-packge">
-            <h4>Why you choose this package</h4>
+            <h4>What's Included</h4>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p><span [innerHTML]="encodep.decode(item5.t_inclued)"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="chosse-packge">
+            <h4>What's Exclude</h4>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p><span [innerHTML]="encodep.decode(item5.t_exclude)"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="chosse-packge">
+            <h4>What's Included</h4>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <ul class="packaging-contents">
@@ -23,11 +78,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div><!-- left-content -->
 
     <!-- right content -->
-    <div class="col-md-4 col-sm-4">
+    <div class="col-md-5 col-sm-5">
         <div class="additional-info">
             <div class="info-title">
                 <h4>Additional Info</h4>
@@ -35,28 +90,30 @@
                     <div class="col-md-7 col-sm-7">
                         <div class="info-list">
                             <p><span><i class="fa fa-map-marker"></i></span>Location</p>
+                            <p><span><i class="fa fa-user"></i></span>Region</p>
+                            <p><span><i class="fa fa-user"></i></span>City</p>
                             <p><span><i class="fa fa-clock-o"></i></span>Duration</p>
-                            <p><span><i class="fa fa-user"></i></span>Min Age</p>
                             <p><span><i class="fa fa-users"></i></span>Max People</p>
                             <p><span><i class="fa fa-plane"></i></span>Landing</p>
-                            <p><span><i class="fa fa-calendar-check-o"></i></span>Check In</p>
-                            <p><span><i class="fa fa-calendar-minus-o"></i></span>Check Out</p>
+                            <!-- <p><span><i class="fa fa-calendar-check-o"></i></span>Check In</p>
+                            <p><span><i class="fa fa-calendar-minus-o"></i></span>Check Out</p> -->
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-5">
                         <div class="info-details">
-                            <p>Thailand</p>
-                            <p>4 days</p>
-                            <p>12+</p>
-                            <p>5</p>
-                            <p>Thailand</p>
-                            <p>15/5/2018</p>
-                            <p>19/5/2018</p>
+                            <p>{{item5.country}}</p>
+                            <p>{{item5.province}}</p>
+                            <P>{{item5.city}}</P>
+                            <p>{{item5.duration}}</p>
+                            <p>{{item5.max_people}}</p>
+                            <p>{{item5.country}}</p>
+                            <!-- <p>15/5/2018</p>
+                            <p>19/5/2018</p> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div><!-- right content -->
-    
+
 </div>

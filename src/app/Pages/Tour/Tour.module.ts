@@ -9,7 +9,7 @@ import { DescriptiontourComponent } from './DescriptionTour/DescriptionTour.comp
 import { AddcartComponent } from './AddCart/AddCart.component';
 import { TourformComponent } from './TourForm/TourForm.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     SingletourComponent,
@@ -24,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ]
 })
 export class TourModule { }
