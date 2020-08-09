@@ -6,29 +6,48 @@
             <p><span [innerHTML]="encodep.decode(item5.description)"></span></p>
         </div>
         <div class="tour-description">
-            <h4>Tour Slots</h4>
-            <table mat-table [dataSource]="Tavaibility" class="mat-elevation-z8">
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-                <!-- Position Column -->
+            <h4>Upcoming departures</h4>
+            <ul class="ao-tour-availability__variants-container js-ao-tour-availability__variants-container" *ngFor="let dataItm of Tavaibility">
+               <li class="am-tour-availability__variant js-am-tour-availability__variant">
+                  <div class="am-tour-availability__variant-instant-label">
+                    Get Instant Confirmation
+                  </div>
+                  <div class="am-tour-availability__variant-date-start">
+                      Time
+                      <div class="am-tour-availability__variant-bold-text">{{dataItm.checkintime}}</div>
+                  </div>
+                  <div class="am-tour-availability__variant-date-arrow-wrapper">
+                       <div class="am-tour-availability__variant-date-arrow"></div>
+                  </div>
+                  <div class="am-tour-availability__variant-date-finish">
+                     Date
+                     <div class="am-tour-availability__variant-bold-text am-tour-availability__variant-bold-text--text-align-right">
+                        {{dataItm.checkindate|date}}
+                     </div>
+                  </div>
+                  <div class="am-tour-availability__variant-delimiter"></div>
+                  <div class="am-tour-availability__variant-group-container"></div>
+                  <div class="am-tour-availability__variant-price-container">
+                      <div class="am-tour-availability__variant-bold-text">$1,025</div>
+                      <div class="am-tour-availability__variant-flexibility">Book With Flexibility</div>
+                  </div>
+                  <div class="am-tour-availability__variant-cta-container"></div>
+               </li>
+            </ul>
+            <!-- btoa() and atob() -->
+            <!-- <table mat-table [dataSource]="Tavaibility" class="mat-elevation-z8">
                 <ng-container matColumnDef="DateIn">
                     <th mat-header-cell *matHeaderCellDef> Date CheckIn |</th>
                     <td mat-cell *matCellDef="let element"> {{element.checkindate|date}} </td>
                 </ng-container>
-
-                <!-- Name Column -->
                 <ng-container matColumnDef="DateOut">
                     <th mat-header-cell *matHeaderCellDef> Date CheckOut |</th>
                     <td mat-cell *matCellDef="let element"> {{element.checkoutdate|date}} </td>
                 </ng-container>
-
-                <!-- Weight Column -->
                 <ng-container matColumnDef="TIn">
                     <th mat-header-cell *matHeaderCellDef> TimeIn |</th>
                     <td mat-cell *matCellDef="let element"> {{element.checkintime}} </td>
                 </ng-container>
-
-                <!-- Symbol Column -->
                 <ng-container matColumnDef="Tout">
                     <th mat-header-cell *matHeaderCellDef> TimeOut |</th>
                     <td mat-cell *matCellDef="let element"> {{element.checkouttime}} </td>
@@ -36,7 +55,7 @@
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+            </table> -->
         </div>
         <br/>
         <div class="tour-description">

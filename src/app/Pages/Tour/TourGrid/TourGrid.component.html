@@ -1,20 +1,6 @@
-<br/>
-<section class="related-tour popular-packages">
-    <div class="container">
-        <div class="row">
-			<div class="col-sm-12">
-				<div class="section-title-3 mbt-100 related-title">
-					<h2>Selected Tour</h2>
-				</div>
-			</div>
-		</div>
-    </div>
-</section>
-
-
-<!-- <div class="container" style="margin-top: -100px;">
+<div class="container" style="margin-top: -100px;">
     <div class="product-box padding-all margin-bottom">
-        <div class="previous-orders-items" *ngFor="let item of tourList; let i=index;">
+        <div class="previous-orders-items" *ngFor="let item of tours; let i=index;">
             <img [src]="item.featureimage" alt="">
             <div>
                 <p>
@@ -61,15 +47,15 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="mb-4">
-                            <h4>Subtotal</h4><span fxFlex></span>
-                            <h4>{{totalCost |currency}}</h4>
+                            <h4><b>Subtotal: {{totalCost |currency}}</b></h4><span fxFlex></span>
+                            <h4></h4>
                         </div>
                         <br>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <div class="mb-4">
-                            <h4>Grand Total</h4><span fxFlex></span>
-                            <h4>{{totalCost |currency}}</h4>
+                            <h4><b>Grand Total: {{totalCost |currency}}</b></h4><span fxFlex></span>
+                            <h4></h4>
                         </div>
                     </div>
                 </div>
@@ -77,17 +63,12 @@
         </div>
     </div>
 
-</div> -->
-
-<!-- <div class="container" style="margin-top: -100px;" *ngIf="!tours">
+</div>
+<div class="container" style="margin-top: -100px;" *ngIf="!tours">
     <div class="wc-proceed-to-checkout" style="text-align: center;">
         <a class="atbtn wc-forward btn btn-link" style="text-align: center;" (click)="addTourToCart()">
             Add Tour To Cart
         </a>
         <br>
     </div>
-</div> -->
-<app-tour-grid [totalCost]="totalCost" [tours]="tourList" gridLength="4" (addToCart)="addToCart($event)"
-        (addToWishList)="addToWishList($event)" (removeTourData)="openConfirmationPopup($event,'detelecart')"
-        (emptyCartdata)="openConfirmationPopup($event,'emptycart')"></app-tour-grid>
-<br /><br />
+</div>

@@ -34,7 +34,15 @@
 						<li></li>
 					</ul>
 					<div class="package-features-image">
-						<img src="../../../../assets/images/13.jpg" alt="" class="img-responsove border-raduis-3">
+
+						<mat-card class="example-card">
+							<mat-card-header>
+							  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+							</mat-card-header>
+							<img mat-card-image [src]="item.featureimage" alt="Photo of a Shiba Inu">
+							<mat-card-content>
+							</mat-card-content>
+						</mat-card>
 					</div>
 				</div><!-- tab menu strat -->
 
@@ -46,7 +54,6 @@
 						<mat-tab label="Description">
 							<app-descriptiontour [currentSingleProduct]="currentSingleProduct"
 								[Tavaibility]="Tavaibility"></app-descriptiontour>
-							<app-relativetour></app-relativetour>
 						</mat-tab>
 						<mat-tab label="Tour Itinary">
 							<div class="row">
@@ -140,7 +147,7 @@
 
 			<!-- booking form start here *ngIf="tourPrice"-->
 			<div class="col-md-4 col-sm-12">
-				<app-tourform [currentSingleProduct]="currentSingleProduct" [tourPrice]="tourPrice"></app-tourform>
+				<app-tourform [currentSingleProduct]="currentSingleProduct" [tourPrice]="tourPrice" [Tavaibility]="Tavaibility"></app-tourform>
 				<div class="adding-form">
 					<div class="addfor-bg">
 						<div class="add-content">
@@ -158,4 +165,6 @@
 			</div><!-- booking form end here -->
 		</div>
 	</div>
+
+	<app-relativetour [country]="country"></app-relativetour>
 </section>

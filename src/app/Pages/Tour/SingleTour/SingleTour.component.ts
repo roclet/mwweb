@@ -41,7 +41,6 @@ export class SingletourComponent implements OnInit {
     private formBuilder: FormBuilder,
     private serviceT: TourService
   ) { }
-
   ngOnInit() {
     this.route.params.subscribe(res => {
       this.id = this.encodep.decode(res.id);
@@ -102,6 +101,7 @@ export class SingletourComponent implements OnInit {
     ];
     this.serviceT.getDataDetailsApi(this.datain).subscribe(data => {
       this.Tavaibility = data.RESULT;
+      console.log('zzzzzzzzz', this.Tavaibility);
     });
   }
 

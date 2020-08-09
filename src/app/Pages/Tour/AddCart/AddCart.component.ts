@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { TourService } from 'src/app/Services/Tour.service';
+import { DialogService } from 'src/app/Services/DialogService';
+import { ConfirmationPopupComponent } from '../../confirmation-popup/ConfirmationPopup.component';
 
 @Component({
   selector: 'app-addcart',
@@ -52,9 +57,67 @@ export class AddcartComponent implements OnInit {
       "type": "daily tour"
     }
   ];
-  constructor() { }
+  totalCost;
+  popupResponse: any;
+  tourList = [];
+  //  products = JSON.parse(localStorage.getItem('cartItem')) || [];
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private serviceT: TourService,
+    public dial: DialogService
+  ) { }
 
   ngOnInit() {
+    this.tourList = this.serviceT.getCart();
+    this.totalCost = Number(this.getTotalPrice());
+  }
+
+  public openConfirmationPopup(value: any, type: string) {
+    let message: string;
+    if (type === 'detelecart') {
+      message = 'Are you sure you want to delete this product?';
+    }
+    if (type === 'emptycart') {
+      message = 'Are you sure you want to empty your cart?';
+    }
+    this.dial.confirmationPopup(message, ConfirmationPopupComponent).subscribe(
+      res => {
+        this.popupResponse = res;
+      },
+      err => console.log(err),
+      () => this.getPopupResponse(this.popupResponse, value, type)
+    );
+  }
+
+  public getPopupResponse(response: any, value: any, type) {
+    if (response) {
+      if (type === 'detelecart') {
+        this.serviceT.removeLocalCartProduct(value);
+      } else if (type === 'emptycart') {
+        this.serviceT.emptyProduct(value);
+      } else {
+        this.serviceT.removeLocalWishlistProduct(value);
+      }
+    }
+  }
+
+  public addToCart(value) {
+    this.serviceT.addTocart(value, 'add_cart');
+  }
+
+  public addToWishList(value) {}
+
+  public getTotalPrice() {
+    let total = 0;
+    if (this.tourList && this.tourList.length > 0) {
+      for (const product of this.tourList) {
+        total += total + Number(product.totCartPrice);
+      }
+      return total;
+    }
+    return total;
   }
 
   checkoutCartTour() {}

@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label>Adults <span>*</span></label>
                 <select class="form-control" formControlName="numberAdults"
-                    >
+                (change)="numberAdults()">
                     <option>Adults*</option>
                     <option>1</option>
                     <option>2</option>
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label>Children <span>(Under 12)</span></label>
                 <select class="form-control" formControlName="numberChildren"
-                >
+                (change)="numberChildren()">
                     <option>Children <span>(Under 12)</span></option>
                     <option>1</option>
                     <option>2</option>
@@ -71,7 +71,7 @@
             <div class="form-group">
                 <label>Infant <span>(= 6)</span></label>
                 <select class="form-control" formControlName="numberInfant"
-                >
+                (change)="numberInfant()">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -80,17 +80,50 @@
             </div>
             <div class="form-group">
                 <label>Departure time</label>
-                <select class="form-control" formControlName="departureTime"
+                <ul class="ao-tour-availability__variants-container js-ao-tour-availability__variants-container" *ngFor="let dataItm of Tavaibility">
+                    <li class="am-tour-availability__variant js-am-tour-availability__variant">
+                       <div class="am-tour-availability__variant-instant-label">
+                         Get Instant Confirmation
+                       </div>
+                       <div class="am-tour-availability__variant-date-start">
+                           Time
+                           <div class="am-tour-availability__variant-bold-text">{{dataItm.checkintime}}</div>
+                       </div>
+                       <div class="am-tour-availability__variant-date-arrow-wrapper">
+                            <div class="am-tour-availability__variant-date-arrow"></div>
+                       </div>
+                       <div class="am-tour-availability__variant-date-finish">
+                          Date
+                          <div class="am-tour-availability__variant-bold-text am-tour-availability__variant-bold-text--text-align-right">
+                             {{dataItm.checkindate|date}}
+                          </div>
+                       </div>
+                       <div class="am-tour-availability__variant-delimiter"></div>
+                       <div class="am-tour-availability__variant-price-container">
+                           <div class="am-tour-availability__variant-bold-text">
+                               <!-- <input type="radio"> -->
+                            </div>
+                           <div class="am-tour-availability__variant-flexibility">
+                              <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button value="{{dataItm.checkindate}}"
+                                (change)="departureTime(dataItm.checkindate, dataItm.checkintime)">Select Date And Time</mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                       </div>
+                       <div class="am-tour-availability__variant-cta-container"></div>
+                    </li>
+                 </ul>
+                <!-- <select class="form-control" formControlName="departureTime"
                 >
                     <option>Select a departure time</option>
-                    <!-- <option *ngFor="let itemAv of Tavaibility;" value="{{itemAv.checkindate}}">
+                    <option *ngFor="let itemAv of Tavaibility;" value="{{itemAv.checkindate}}">
                         {{itemAv.time}}
-                    </option> -->
-                </select>
+                    </option>
+                </select> -->
             </div>
             <div class="form-group">
                 <button type="submit" class="check-availability">
-                    Total = 411
+                    Total = {{summTotal | currency}}
                 </button>
             </div>
             <div class="form-group">
@@ -98,7 +131,7 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="booking-confirm hvr-shutter-out-horizontal"
-                >Add
+                (click)="submitBookT()">Add
                     To Cart</button>
             </div>
         </form>

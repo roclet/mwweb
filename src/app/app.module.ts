@@ -12,6 +12,7 @@ import {
   MatButtonModule,
   MatProgressSpinnerModule,
   MatTabsModule,
+  MatRadioModule,
 } from '@angular/material';
 import { MainComponent } from './Main/Main.component';
 import { HeaderComponent } from './Layout/Header/HeaderOne/HeaderOne.component';
@@ -29,6 +30,7 @@ import { FooterComponent } from './Layout/Footer/Footer.component';
 import { TourModule } from './Pages/Tour/Tour.module';
 import { TourService } from './Services/Tour.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogService } from './Services/DialogService';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
+    MatRadioModule,
     MatProgressSpinnerModule,
     ToastaModule.forRoot(),
     GlobalModule,
@@ -61,7 +64,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     MenuItems,
-    TourService
+    TourService,
+    DialogService
   ],
   exports : [
     RouterModule,

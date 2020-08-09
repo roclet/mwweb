@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { TourService } from 'src/app/Services/Tour.service';
 
 @Component({
   selector: 'app-tourform',
@@ -14,10 +15,13 @@ export class TourformComponent implements OnInit {
   summTotal = 0;
   @Input() tourPrice = [];
   @Input() currentSingleProduct = [];
+  @Input() Tavaibility = [];
+  departuretime: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
+    private serviceT: TourService
   ) { }
 
   ngOnInit() {
@@ -26,8 +30,11 @@ export class TourformComponent implements OnInit {
       numberAdults: ['', [Validators.required]],
       numberChildren: ['', [Validators.required]],
       numberInfant: ['', [Validators.required]],
-      departureTime: ['', [Validators.required]],
     });
+  }
+
+  departureTime(checkindate, checkintime) {
+    this.departuretime = checkindate + ',' + checkintime;
   }
 
   submitBookT() {
@@ -43,60 +50,60 @@ export class TourformComponent implements OnInit {
     ] = this.tourBookForm.value.numberInfant;
     this.currentSingleProduct[0][
       'departureTime'
-    ] = this.tourBookForm.value.departureTime;
+    ] = this.departuretime;
     this.currentSingleProduct[0]['totCartPrice'] = this.summTotal;
     console.log('submitBookT &&', this.currentSingleProduct);
-    // this.serviceT.bookNow(this.currentSingleProduct);
+    this.serviceT.bookNow(this.currentSingleProduct);
     this.summTotal = 0;
-    // if (this.serviceT.checkCart()) {
+    // 2976027161 if (this.serviceT.checkCart()) {
     // data[0]['id'],
     //   this.router.navigate(['home/cart']);
     // }
   }
 
   numberAdults() {
-    // for (const row of this.tourPrice) {
-    //   this.currentSingleProduct[0][
-    //     'totAdultPrice'
-    //   ] = this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.adultprice
-    //   );
-    //   this.summTotal += this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.adultprice
-    //   );
-    // }
+    for (const row of this.tourPrice) {
+      this.currentSingleProduct[0][
+        'totAdultPrice'
+      ] = this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.adultprice
+      );
+      this.summTotal += this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.adultprice
+      );
+    }
   }
 
   numberChildren() {
-    // for (const row of this.tourPrice) {
-    //   this.currentSingleProduct[0][
-    //     'totChildPrice'
-    //   ] = this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.childprice
-    //   );
-    //   this.summTotal += this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.childprice
-    //   );
-    // }
+    for (const row of this.tourPrice) {
+      this.currentSingleProduct[0][
+        'totChildPrice'
+      ] = this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.childprice
+      );
+      this.summTotal += this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.childprice
+      );
+    }
   }
 
   numberInfant() {
-    // for (const row of this.tourPrice) {
-    //   this.currentSingleProduct[0][
-    //     'totInfantPrice'
-    //   ] = this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.infantprice
-    //   );
-    //   this.summTotal += this.serviceT.calculatePriceByPerson(
-    //     this.tourBookForm.value.numberAdults,
-    //     row.infantprice
-    //   );
-    // }
+    for (const row of this.tourPrice) {
+      this.currentSingleProduct[0][
+        'totInfantPrice'
+      ] = this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.infantprice
+      );
+      this.summTotal += this.serviceT.calculatePriceByPerson(
+        this.tourBookForm.value.numberAdults,
+        row.infantprice
+      );
+    }
   }
 
 }

@@ -10,20 +10,22 @@
 		</div>
 		<div class="row">
 			<!-- single package start -->
-			<div class="col-md-4 col-sm-4">
+			<div class="col-md-4 col-sm-4" *ngFor="let item of productsList; let i = index">
 				<div class="single-package">
 					<div class="package-image">
-						<a href="#"><img src="../../../../assets/images/1.jpg" alt="">
+						<a href="#">
+							<img [src]="item.featureimage" alt="">
+							<!-- <img src="../../../../assets/images/1.jpg" alt=""> -->
 						</a>
 					</div>
 					<div class="package-content">
-						<h3>Dubai – All Stunning Places</h3>
-						<p>4Days, 5 Nights Start From <span>$500</span>
+						<h3>{{item.country}} – {{item.name}}</h3>
+						<p>{{item.duration}}, {{item.type}} Start From <span>{{item.saleprice|currency}}</span>
 						</p>
 					</div>
 					<div class="package-calto-action">
 						<ul class="ct-action">
-							<li><a href="#" class="travel-booking-btn hvr-shutter-out-horizontal">Book Now</a>
+							<li><a class="travel-booking-btn hvr-shutter-out-horizontal" (click)="relativePostRooter(item.country, item.id)">View Now</a>
 							</li>
 							<li>
 								<i class="fa fa-star"></i>
@@ -38,7 +40,7 @@
 			</div><!-- single package end -->
 
 			<!-- single package start -->
-			<div class="col-md-4 col-sm-4">
+			<!-- <div class="col-md-4 col-sm-4">
 				<div class="single-package">
 					<div class="package-image">
 						<a href="#"><img src="../../../../assets/images/2.jpg" alt="">
@@ -63,9 +65,10 @@
 						</ul>
 					</div>
 				</div>
-			</div><!--End single package -->
+			</div> -->
+			<!--End single package -->
 
-			<div class="col-md-4 col-sm-4">
+			<!-- <div class="col-md-4 col-sm-4">
 				<div class="single-package">
 					<div class="package-image">
 						<a href="#"><img src="../../../../assets/images/3.jpg" alt="">
@@ -90,7 +93,8 @@
 						</ul>
 					</div>
 				</div>
-			</div><!--End single package -->
+			</div> -->
+			<!--End single package -->
 		</div>
 	</div>
 </section>
