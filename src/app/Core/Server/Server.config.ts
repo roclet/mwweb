@@ -38,7 +38,10 @@ export const databaseConfig = {
       tbPhotogallery: 'photo_gallery',
       tbUserDocument: 'userdocument',
       tbbookinginvoice: 'bookinginvoice',
-      tbbooking: 'booking',
+      tbnewbooking: 'booking',
+      tbbookingMain: 'bookingMain',
+      tbbookingtraveler: 'bookingtraveler',
+      tbcustomerbooking: 'customerbooking',
       tbContinent: 'tbcontinent',
 };
 export const PayFastAPI = {

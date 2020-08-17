@@ -64,6 +64,35 @@ export class TourService {
       );
   }
 
+  async createBooking(model): Promise<RequestdDataModel> {
+    console.log('createEmployee', model);
+    return await this.http.post<any>(`${
+      environment.BASE_URL +
+      environment.endpoint +
+      serviceConfig.postDataInsertUrl
+    }`,
+    JSON.stringify(model)).toPromise()
+    .catch(e => this.handleError(e));
+  }
+
+  // public getPaymentBatchList(searchParameters?: PaymentBatchListSearchModel): Promise<PaymentBatchListResponseModel> {
+  //   return Promise.resolve(
+  //     this.dataService.get<PaymentBatchListResponseModel>(serviceConfig.paymentBatchListUrl,
+  //       this.getPaymentBatchListRequestModel(searchParameters)))
+  //     .catch(e => Promise.reject(e));
+  // }
+
+  private handleError(error: Response): any {
+    return Promise.reject(error);
+  }
+
+  // async post<T>(urlString: string, params?: any, responseType?: string): Promise<T> {
+  //   return this.httpClient.post<T>(urlString.replace(serviceConfig.restContextPlaceholder,
+  //     this.cacheService.getRestContextRoot()), params, this.getOptions(responseType))
+  //     .toPromise()
+  //     .catch(e => this.handleError(e));
+  // }
+
   // Adding new Tour to cart in localStorage
   public addTocart(data: any, type: any = '') {
     let tours: any;
@@ -130,14 +159,17 @@ export class TourService {
   public bookNow(data: any) {
     let products: any;
     products = JSON.parse(localStorage.getItem('cartItem')) || [];
+    console.log('Outside bookNow products', products);
     if (products.length > 0) {
       for (const elt of data) {
         products.push(elt);
       }
+      console.log('IF bookNow products', products);
       localStorage.setItem('cartItem', JSON.stringify(products));
       this.router.navigate(['home/st_cart']);
     } else {
       products = data;
+      console.log('else bookNow products', products);
       localStorage.setItem('cartItem', JSON.stringify(products));
       this.router.navigate(['home/st_cart']);
     }

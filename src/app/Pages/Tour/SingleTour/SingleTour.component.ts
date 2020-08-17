@@ -22,9 +22,7 @@ export class SingletourComponent implements OnInit {
   slotList: any;
   languesList: any;
   galleryList = [];
-  // public tableData = new TableModel();
   datain = new PostJsonDataModel();
-  // public encodep = Base64;
   Tavaibility = [];
   TLanguage = [];
   currentSingleProduct = [];
@@ -101,7 +99,6 @@ export class SingletourComponent implements OnInit {
     ];
     this.serviceT.getDataDetailsApi(this.datain).subscribe(data => {
       this.Tavaibility = data.RESULT;
-      console.log('zzzzzzzzz', this.Tavaibility);
     });
   }
 

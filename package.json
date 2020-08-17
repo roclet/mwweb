@@ -35,6 +35,8 @@
     "rxjs": "~6.6.2",
     "tslib": "^1.9.0",
     "typescript": "^3.9.7",
+    "uuid": "^8.3.0",
+    "uuidv4": "^6.2.2",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

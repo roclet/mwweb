@@ -71,6 +71,7 @@ export class AddcartComponent implements OnInit {
 
   ngOnInit() {
     this.tourList = this.serviceT.getCart();
+    console.log('Tour add To cart', this.tourList);
     this.totalCost = Number(this.getTotalPrice());
   }
 

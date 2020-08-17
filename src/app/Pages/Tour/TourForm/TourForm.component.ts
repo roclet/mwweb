@@ -52,7 +52,7 @@ export class TourformComponent implements OnInit {
       'departureTime'
     ] = this.departuretime;
     this.currentSingleProduct[0]['totCartPrice'] = this.summTotal;
-    console.log('submitBookT &&', this.currentSingleProduct);
+    console.log('#### submitBookT &&', this.currentSingleProduct);
     this.serviceT.bookNow(this.currentSingleProduct);
     this.summTotal = 0;
     // 2976027161 if (this.serviceT.checkCart()) {
