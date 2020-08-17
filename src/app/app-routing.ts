@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { MainComponent } from './Main/Main.component';
 import { HomeComponent } from './Pages/Home/home/Home.component';
 import { SingletourComponent } from './Pages/Tour/SingleTour/SingleTour.component';
@@ -34,7 +33,6 @@ export const AppRoutes: Routes = [
         path: 'home/checkout',
         component: CheckoutComponent,
       },
-      // CheckoutComponent
     ],
   },
   {
