@@ -14,11 +14,13 @@ import { TourService } from 'src/app/Services/Tour.service';
 export class HomeComponent implements OnInit {
   datain = new PostJsonDataModel();
   tourmodel = new Array<TourModel>();
+  destination = new Array<any>();
   topdestinationmodel = new Array<DestinationModel>();
   constructor(private serviceT: TourService) { }
 
   ngOnInit() {
     this.getAllTour();
+    this.getAllDestination();
   }
 
   getAllTour() {
@@ -34,7 +36,23 @@ export class HomeComponent implements OnInit {
     ];
     this.serviceT.getDataDetailsApi(this.datain).subscribe(data => {
       this.tourmodel = data.RESULT;
-      console.log("this.tourmodel", this.tourmodel);
+      console.log('this.tourmodel', this.tourmodel);
+    });
+  }
+
+  getAllDestination() {
+    this.datain.Fields = [];
+    this.datain.TableName = databaseConfig.tbDestination;
+    this.datain.DbName = environment.cassandra.dbName;
+    this.datain.Conditions = [
+      {
+        Key: 'Company',
+        Val: 'feelathome',
+        Type: 'string',
+      },
+    ];
+    this.serviceT.getDataDetailsApi(this.datain).subscribe(data => {
+      this.topdestinationmodel = data.RESULT;
     });
   }
 

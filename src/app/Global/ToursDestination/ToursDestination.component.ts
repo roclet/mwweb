@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DestinationModel } from '../../Shared/Model/Destination.model';
 
 @Component({
   selector: 'app-toursdestination',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ToursDestination.component.scss']
 })
 export class ToursdestinationComponent implements OnInit {
-
+  @Input() topdestinationmodel: DestinationModel[];
   constructor() { }
 
   ngOnInit() {
