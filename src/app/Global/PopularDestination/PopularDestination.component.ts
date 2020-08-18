@@ -20,8 +20,6 @@ export class PopulardestinationComponent implements OnInit {
     this.route.params.subscribe(res => {
       this.id = this.encodep.decode(res.id);
       this.country = this.encodep.decode(res.type);
-      console.log(this.country, "params", this.id);
-      // this.getData();
     });
   }
 }
