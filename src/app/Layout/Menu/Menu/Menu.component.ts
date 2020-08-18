@@ -34,7 +34,8 @@ export class MenuComponent implements OnInit {
 
 
  public redirectTo(subchildState) {
-    this.router.navigate([subchildState.state], { queryParams: { category: subchildState.queryState }});
+   console.log('subchildState', subchildState);
+    // this.router.navigate([subchildState.state], { queryParams: { category: subchildState.queryState }});
  }
 
  public logout(stateUrl) {
