@@ -30,6 +30,7 @@ import { TourModule } from './Pages/Tour/Tour.module';
 import { TourService } from './Services/Tour.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogService } from './Services/DialogService';
+import { TourListModule } from './Pages/TourList/TourList.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { DialogService } from './Services/DialogService';
     TopHeaderComponent,
     HomeComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,7 @@ import { DialogService } from './Services/DialogService';
     MatProgressSpinnerModule,
     ToastaModule.forRoot(),
     GlobalModule,
+    TourListModule,
     HttpClientModule,
     TourModule
   ],

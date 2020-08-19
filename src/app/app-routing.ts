@@ -41,6 +41,11 @@ export const AppRoutes: Routes = [
       import('./Pages/Session/Session.module').then((m) => m.SessionModule),
   },
   {
+    path: 'filterTR',
+    loadChildren: () =>
+      import('./Pages/TourList/TourList.module').then((m) => m.TourListModule),
+  },
+  {
     path: '**',
     redirectTo: 'not-found',
   },
